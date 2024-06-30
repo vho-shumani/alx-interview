@@ -2,6 +2,8 @@
 """
 0-pascal_triangle
 """
+
+
 def pascal_triangle(n):
     """
     Returns a list of lists of integers
@@ -9,7 +11,7 @@ def pascal_triangle(n):
     triangle_list = []
     if n <= 0:
         return triangle_list
-    
+
     for i in range(n):
         row_list = [1] * (i + 1)
         for j in range(1, i):
