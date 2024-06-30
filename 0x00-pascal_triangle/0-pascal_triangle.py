@@ -1,4 +1,10 @@
+"""
+0-pascal_triangle
+"""
 def pascal_triangle(n):
+    """
+    Returns a list of lists of integers
+    """
     triangle_list = []
     if n <= 0:
         return triangle_list
@@ -9,14 +15,3 @@ def pascal_triangle(n):
             row_list[j] = triangle_list[i - 1][j - 1] + triangle_list[i - 1][j]
         triangle_list.append(row_list)
     return triangle_list
-
-def print_triangle(triangle):
-    """
-    Print the triangle
-    """
-    for row in triangle:
-        print("[{}]".format(",".join([str(x) for x in row])))
-
-
-if __name__ == "__main__":
-    print_triangle(pascal_triangle(5))
