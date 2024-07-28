@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
+"""0-validate_utf8.py"""
 def validUTF8(data):
+    """determines if a given data set represents a valid UTF-8 encoding"""
     def check_continuation(byte):
         return (byte & 0b11000000) == 0b10000000
 
