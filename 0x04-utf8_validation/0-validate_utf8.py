@@ -3,6 +3,7 @@
 def validUTF8(data):
     """determines if a given data set represents a valid UTF-8 encoding"""
     def check_continuation(byte):
+        """check continuation"""
         return (byte & 0b11000000) == 0b10000000
 
     i = 0
