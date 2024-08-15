@@ -11,8 +11,9 @@ def rotate_2d_matrix(matrix):
     """
     for row in range(len(matrix)):
         for col in range(row, len(matrix)):
-            matrix[row][col],
-            matrix[col][row] = matrix[col][row], matrix[row][col]
+            temp = matrix[row][col],
+            matrix[row][col] = matrix[col][row]
+            matrix[col][row] = temp
 
     for row in matrix:
         row.reverse()
