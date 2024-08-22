@@ -7,7 +7,7 @@ def makeChange(coins, total):
     needed to meet a given amount total"""
     if total <= 0:
         return 0
-    array = [total + 1 for i in range(total + 1)]
+    array = [total + 1] * (total + 1)
     array[0] = 0
     for i in range(total + 1):
         for coin in coins:
