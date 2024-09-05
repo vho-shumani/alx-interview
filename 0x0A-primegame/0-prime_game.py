@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
+"""0-prime_game.py"""
 def isWinner(x, nums):
+    """Return: name of the player that won the most rounds"""
     def sieve_of_eratosthenes(n):
         primes = [True] * (n + 1)
         primes[0] = primes[1] = False
