@@ -2,29 +2,30 @@
 """0-prime_game.py"""
 def isWinner(x, nums):
     """Return: name of the player that won the most rounds"""
+    
     def sieve_of_eratosthenes(n):
         primes = [True] * (n + 1)
         primes[0] = primes[1] = False
         for i in range(2, int(n**0.5) + 1):
             if primes[i]:
-                for j in range(i*i, n + 1, i):
+                for j in range(i * i, n + 1, i):
                     primes[j] = False
         return primes
-
+    
+    max_n = max(nums)
+    primes = sieve_of_eratosthenes(max_n)
+    
     def play_game(n):
-        primes = sieve_of_eratosthenes(n)
         remaining = set(range(1, n + 1))
-        maria_turn = True
+        moves = 0
         
-        while True:
-            prime_choices = [num for num in remaining if primes[num]]
-            if not prime_choices:
-                return "Ben" if maria_turn else "Maria"
-            
-            choice = min(prime_choices)
-            remaining -= set(range(choice, n + 1, choice))
-            maria_turn = not maria_turn
-
+        for p in range(2, n + 1):
+            if primes[p] and p in remaining:
+                moves += 1
+                remaining -= set(range(p, n + 1, p))
+        
+        return "Maria" if moves % 2 == 1 else "Ben"
+    
     maria_wins = ben_wins = 0
     for n in nums:
         winner = play_game(n)
@@ -39,3 +40,4 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
+
