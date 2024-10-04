@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+"""Module contain makechange function"""
+
+
 def makeChange(coins, total):
+    """Determine the fewest number of coins needed to meet a given amount total."""
     if total <= 0:
         return 0
     
